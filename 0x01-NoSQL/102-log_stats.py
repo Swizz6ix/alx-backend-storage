@@ -57,7 +57,7 @@ def run():
     """
     runs the script to provide stats about Nginx
     """
-    client = MongoClient('mongo://127.0.0.1:27017')
+    client = MongoClient('mongodb://127.0.0.1:27017')
     nginx_logs(client.logs.nginx)
 
 
