@@ -24,7 +24,7 @@ def nginx_logs(nginx_collection):
 
 def top_ips(server_collection):
     """
-    
+    Prints statistics about the top 10 HTTP IPS in a collection
     """
     print('IPs:')
     request_logs = server_collection.aggregate(
@@ -59,6 +59,7 @@ def run():
     """
     client = MongoClient('mongodb://127.0.0.1:27017')
     nginx_logs(client.logs.nginx)
+    top_ips(client.logs.nginx)
 
 
 if __name__ == '__main__':
