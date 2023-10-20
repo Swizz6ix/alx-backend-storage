@@ -19,7 +19,7 @@ BEGIN
 
     UPDATE users
         SET users.average_score = IF(projects_count = 0, 0, total_score / projects_count)
-        WHERE user_id = user_id;
+        WHERE user.id = user_id;
     END $$
     DELIMITER ;
     

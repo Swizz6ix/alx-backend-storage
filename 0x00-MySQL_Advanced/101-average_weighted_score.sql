@@ -13,7 +13,7 @@ BEGIN
             FROM corrections
                 INNER JOIN projects
                     ON corrections.project_id = projects.id
-            WHERE corrections.user_id = users_id
+            WHERE corrections.user_id = users.id
         );
 
     UPDATE users
@@ -22,7 +22,7 @@ BEGIN
                 FROM corrections
                     INNER JOIN projects
                         ON corrections.project_id = projects.id
-                WHERE corrections.user_id = users_id
+                WHERE corrections.user_id = users.id
         );
 
     UPDATE users
