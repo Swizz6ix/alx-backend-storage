@@ -48,10 +48,10 @@ def replay(fn: Callable) -> None:
     """
     fxn_name = fn.__qualname__
     cache = redis.Redis()
-    calls = cache.get(fxn_name).decode("utf-8")
+    calls = cache.get(fxn_name).decode('utf-8')
     print('{} was called {} times:'.format(fxn_name, calls))
-    fxn_inputs = cache.lrange(fxn_name + ":fxn_inputs", 0, -1)
-    fxn_outputs = cache.lrange(fxn_name + ":fxn_outputs", 0, -1)
+    fxn_inputs = cache.lrange(fxn_name + ":inputs", 0, -1)
+    fxn_outputs = cache.lrange(fxn_name + ":outputs", 0, -1)
     for fxn_input, fxn_output in zip(fxn_inputs, fxn_outputs):
         print("{}(*{}) -> {}".format(
             fxn_name, fxn_input.decode('utf-8'), fxn_output.decode('utf-8')
